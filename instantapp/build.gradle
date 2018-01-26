@@ -1,0 +1,6 @@
+apply plugin: 'com.android.instantapp'
+
+dependencies {
+    implementation project(':sms_send_notty')
+    implementation project(':base')
+}
