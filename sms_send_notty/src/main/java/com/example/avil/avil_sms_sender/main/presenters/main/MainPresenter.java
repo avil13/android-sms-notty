@@ -2,15 +2,52 @@ package com.example.avil.avil_sms_sender.main.presenters.main;
 
 import android.content.Context;
 
+import com.example.avil.avil_sms_sender.main.models.api.messages.ApiService;
+import com.example.avil.avil_sms_sender.main.models.api.messages.Message;
+import com.example.avil.avil_sms_sender.main.models.api.messages.MessageClient;
+import com.example.avil.avil_sms_sender.main.models.api.messages.MessageResponse;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class MainPresenter {
     private static MainPresenter instance = new MainPresenter();
     private static Context context;
 
-    private MainPresenter() {}
+    private List<Message> listMessages;
+
+    private MainPresenter() {
+        getData();
+    }
 
     public static MainPresenter getInstance(Context context) {
         MainPresenter.context = context;
         return instance;
     }
+
+    private void getData() {
+        ApiService api = MessageClient.getApiService();
+        Call<MessageResponse> call = api.getSms();
+
+        call.enqueue(new Callback<MessageResponse>() {
+            @Override
+            public void onResponse(Call<MessageResponse> call, Response<MessageResponse> response) {
+                if (response.isSuccessful()) {
+                    listMessages = response.body().getMessage();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<MessageResponse> call, Throwable t) {
+
+            }
+        });
+    }
+
+
+
 }
 
