@@ -1,1 +1,1 @@
-include ':sms_send_notty', ':app', ':base', ':instantapp'
+include ':app'
