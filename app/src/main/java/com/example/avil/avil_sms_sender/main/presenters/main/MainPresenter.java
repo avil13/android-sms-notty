@@ -27,6 +27,7 @@ public class MainPresenter {
         msg.setPhone("+7 999 999  9999");
         msg.setTime("2077-02-02 22:22:11");
         msg.setMessage("Hello world");
+        msg.setDone(true);
 
         listMessages.add(msg);
 //        getData();

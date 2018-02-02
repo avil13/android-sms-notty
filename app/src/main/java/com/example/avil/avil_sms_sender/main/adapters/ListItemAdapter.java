@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.example.avil.avil_sms_sender.main.models.api.messages.Message;
@@ -44,10 +45,12 @@ public class ListItemAdapter extends BaseAdapter {
         TextView phone = convertView.findViewById(R.id.message_item_phone);
         TextView time = convertView.findViewById(R.id.message_item_time);
         TextView message = convertView.findViewById(R.id.message_item_message);
+        CheckBox done = convertView.findViewById(R.id.message_item_done);
 
         phone.setText(listItems.get(position).getPhone());
         time.setText(listItems.get(position).getTime());
         message.setText(listItems.get(position).getMessage());
+        done.setChecked(listItems.get(position).getDone());
 
         return convertView;
     }
