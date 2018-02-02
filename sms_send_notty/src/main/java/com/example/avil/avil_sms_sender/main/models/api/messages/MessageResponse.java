@@ -1,6 +1,6 @@
 package com.example.avil.avil_sms_sender.main.models.api.messages;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -12,7 +12,7 @@ public class MessageResponse {
     private Boolean success;
     @SerializedName("message")
     @Expose
-    private List<Message> message = null;
+    private ArrayList<Message> message = null;
 
     public Boolean getSuccess() {
         return success;
@@ -22,11 +22,11 @@ public class MessageResponse {
         this.success = success;
     }
 
-    public List<Message> getMessage() {
+    public ArrayList<Message> getMessage() {
         return message;
     }
 
-    public void setMessage(List<Message> message) {
+    public void setMessage(ArrayList<Message> message) {
         this.message = message;
     }
 

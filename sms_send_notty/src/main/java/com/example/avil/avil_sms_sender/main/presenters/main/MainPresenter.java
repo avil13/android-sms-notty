@@ -7,6 +7,7 @@ import com.example.avil.avil_sms_sender.main.models.api.messages.Message;
 import com.example.avil.avil_sms_sender.main.models.api.messages.MessageClient;
 import com.example.avil.avil_sms_sender.main.models.api.messages.MessageResponse;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -17,10 +18,18 @@ public class MainPresenter {
     private static MainPresenter instance = new MainPresenter();
     private static Context context;
 
-    private List<Message> listMessages;
+    private ArrayList<Message> listMessages;
 
     private MainPresenter() {
-        getData();
+        listMessages = new ArrayList<Message>(2);
+
+        Message msg = new Message();
+        msg.setPhone("+7 999 999  9999");
+        msg.setTime("2077-02-02 22:22:11");
+        msg.setMessage("Hello world");
+
+        listMessages.add(msg);
+//        getData();
     }
 
     public static MainPresenter getInstance(Context context) {
@@ -42,9 +51,13 @@ public class MainPresenter {
 
             @Override
             public void onFailure(Call<MessageResponse> call, Throwable t) {
-
+                listMessages.clear();
             }
         });
+    }
+
+    public List<Message> getListMessages() {
+        return listMessages;
     }
 
 
