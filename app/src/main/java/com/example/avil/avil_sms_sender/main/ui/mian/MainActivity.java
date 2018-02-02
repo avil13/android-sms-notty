@@ -5,9 +5,12 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.avil.avil_sms_sender.main.adapters.ListItemAdapter;
 import com.example.avil.avil_sms_sender.main.models.api.messages.Message;
 import com.example.avil.avil_sms_sender.main.presenters.main.MainPresenter;
 import com.example.avil.avil_sms_sender.sms_send_notty.R;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,7 +24,9 @@ public class MainActivity extends AppCompatActivity {
 
 //        создаем список
         ListView listView = (ListView) findViewById(R.id.list_items);
-        ArrayAdapter<Message> adapter = new ArrayAdapter<>(this, R.layout.list_message_view, presenter.getListMessages());
+
+        ListItemAdapter adapter = new ListItemAdapter(this, presenter.getListMessages());
+
         listView.setAdapter(adapter);
     }
 

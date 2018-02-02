@@ -56,7 +56,7 @@ public class MainPresenter {
         });
     }
 
-    public List<Message> getListMessages() {
+    public ArrayList<Message> getListMessages() {
         return listMessages;
     }
 
