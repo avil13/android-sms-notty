@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp">
 
     <TextView
         android:id="@+id/message_item_phone"
@@ -16,7 +17,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="+7 985 999 99 99" />
+        tools:text="" />
 
     <TextView
         android:id="@+id/message_item_time"
@@ -29,7 +30,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/message_item_phone"
-        tools:text="2018-01-31 21:00:00" />
+        tools:text="" />
 
     <TextView
         android:id="@+id/message_item_message"
@@ -42,6 +43,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/message_item_time"
-        tools:text="2018-01-31 21:00:00" />
+        tools:text="" />
 
 </android.support.constraint.ConstraintLayout>
